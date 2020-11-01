@@ -134,3 +134,8 @@ body{
     background-color: rgb(86, 62, 193);
 }
 
+@media screen and (max-width: 600px){
+    #todos{
+        width: 100%;
+    }
+}
