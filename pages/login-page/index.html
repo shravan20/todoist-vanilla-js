@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> firebase </title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+     <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script> -->
+
+</head>
+<body>
+   
+
+    <div> 
+        <button onClick="googleLogin();" > 
+            Sign in with Google 
+        </button> 
+    </div> 
+
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDft5RzhT29k7OrJn_CV8rwcfHDXm1PGfY",
+            authDomain: "todoist-faa81.firebaseapp.com",
+            databaseURL: "https://todoist-faa81.firebaseio.com",
+            projectId: "todoist-faa81",
+            storageBucket: "todoist-faa81.appspot.com",
+            messagingSenderId: "540573043843",
+            appId: "1:540573043843:web:3e1ccc3110a13607501fb6",
+            measurementId: "G-VEVRMS1Y51"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script type="text/javascript">
+    async function googleLogin () {
+
+        console.log('In googleLogin()');
+        // Google provider object is created here. 
+        const googleAuth =  new firebase.auth.GoogleAuthProvider();                 
+        // using the object we will authenticate the user. 
+        let userData = await firebase.auth().signInWithPopup(googleAuth); 
+        console.log(userData);
+    }
+
+    </script>
+
+
+</body>
+</html>
